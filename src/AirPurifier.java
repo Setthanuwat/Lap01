@@ -1,7 +1,7 @@
 import java.sql.SQLOutput;
 
 public class AirPurifier {
-    int AirQuality;
+   int AirQuality;
     int Cfilter;
     int Speed;
     int Time1;
@@ -13,12 +13,16 @@ public class AirPurifier {
     int year = 2020;
     String x;
 
+    AirPurifier()
+    {
+        this(4,70 , 2, 15 ,31,25,1);
+    }
     AirPurifier(int AirQ, int _Cfiler, int spd, int T1, int T2, int _Temp, int _mode) {
-        AirQuality = AirQ;
-        Cfilter = _Cfiler;
-        Time1 = T1;
-        Time2 = T2;
-        Temp = _Temp;
+        this.AirQuality = AirQ;
+        this.Cfilter = _Cfiler;
+        this.Time1 = T1;
+        this.Time2 = T2;
+        this.Temp = _Temp;
         if (_mode == 1) {
             mode = "Healthy";
         } else if (_mode == 2) {
@@ -32,6 +36,30 @@ public class AirPurifier {
     void showAirPurifier() {
         System.out.println("Brand: " + brand);
         System.out.println("model: " + model);
+        if (AirQuality > 6 )
+        {
+            System.out.println("statusAir: Green");
+        }
+        else if (AirQuality  <6 )
+        {
+            System.out.println("statusAir: Yellow");
+        }
+        else if (AirQuality < 4 )
+        {
+            System.out.println("statusAir: Red");
+        }
+        if (Cfilter >= 60)
+        {
+            System.out.println("statusFiler: Green");
+        }
+        else if (Cfilter < 60)
+        {
+            System.out.println("statusFiler: Yellow");
+        }
+        else if (Cfilter <= 10)
+        {
+            System.out.println("statusFiler: Red");
+        }
         System.out.println("AirQuality: " + AirQuality);
         System.out.println("Filer: " + Cfilter+"%");
         System.out.println("Time: " + Time1+":"+Time2);
@@ -41,14 +69,15 @@ public class AirPurifier {
         {
             System.out.println("Please change the filter !!!");
         }
-        if(Cfilter <= 10)
+        else if(Cfilter <= 10)
         {
             System.out.println("Warning !!!!!!!!!");
             System.out.println(" pip pip pip pip");
         }
-        if (AirQuality < 5)
+        if (AirQuality < 4) {
             System.out.println("what awful weather !");
-             System.out.println(" pip pip pip pip");
+            System.out.println(" pip pip pip pip");
+        }
 
 
     }
