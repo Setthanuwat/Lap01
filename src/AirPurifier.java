@@ -11,7 +11,7 @@ public class AirPurifier {
     String brand = "SHARP";
     String mode;
     int year = 2020;
-    String x;
+
 
     AirPurifier()
     {
